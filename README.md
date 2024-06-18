@@ -13,3 +13,25 @@ For plotting the bifurcation level / radius
 10. Run xml2graph on the exported XML graph (xml2graph in OpenCCO/build/tools/graphAnalysis) to create .dat files 
 11. Run graph2statBifRad stat.dat vertex.dat edges.dat radius.dat (graph2statBifRad in OpenCCO/build/tools/graphAnalysis) to create the stat.dat
 12. Run gnuplot plotStatRadius.plt (plotStatRadius in OpenCCO/.ipol/helpers/) to create the final .pdf file with the plot
+
+
+How to build OpenCCO
+1.  Clone the repository https://github.com/OpenCCO-team/OpenCCO/tree/main
+2.  cd OpenCCO
+3.  mkdir build (create the build directory)
+4.  cmake ..
+5.  make (linux) or cmake --build . --targets ALL_BUILD --config RELEASE (windows)
+
+The following dependencies need to be installed
+1.  CMake >= 3.5
+2.  DGtal library (https://github.com/DGtal-team/DGtal)
+    1.  Clone and build (similar to OpenCCO process above, steps 1-5)
+3.  Ceres solver (follow guide http://ceres-solver.org/installation.html for windows/linux)
+4.  Eigen
+5.  Gflags
+6.  Glog
+
+Note 1: Eigen, Gflags, and Glog can be install using the vcpkg manager
+Note 2: When Ceres, Eigen, Gflags, and Glog are installed, change the CMakeLists.txt of OpenCCO in order to find the installation path
+
+
